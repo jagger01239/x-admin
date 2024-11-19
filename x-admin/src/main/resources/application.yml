@@ -1,0 +1,47 @@
+server:
+  ip: localhost
+  port: 9999
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/xdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 20011027
+  redis:
+    host: localhost
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+
+logging:
+  level:
+    com.lantu: debug
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/sys/*.xml
+  #??
+  type-aliases-package: com.xadmin.sys.entity
+  configuration:
+    map-underscore-to-camel-case: true  # ????
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+
+files:
+  upload:
+    path: C:/myweb/x-admin/files
+
+paizhao:
+  imgsUrl: C:/myweb/haikangimgs
+
+opencv:
+  lib:
+    linuxxmlpath: /usr/local//opencv/haarcascades/haarcascade_frontalface_alt.xml
+    windowxmlpath: C:\myweb\opencv\opencv\sources\data\haarcascades\haarcascade_frontalface_alt.xml
